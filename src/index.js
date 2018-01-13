@@ -1,9 +1,8 @@
-import React, {Component} from 'react'
+import React from 'react'
+import Grid from './Grid'
 
-export default class extends Component {
+export default class extends React.Component {
   render() {
-    return <div>
-      <h2>Welcome to React components</h2>
-    </div>
+    return <Grid />
   }
 }
