@@ -1,7 +1,14 @@
 {
   "name": "react-smart-grid",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "react-smart-grid React component",
+  "repository": "https://github.com/lunochkin/react-smart-grid",
+  "homepage": "https://github.com/lunochkin/react-smart-grid",
+  "author": "Maksim Lunochkin",
+  "license": "MIT",
+  "keywords": [
+    "react-component"
+  ],
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -26,12 +33,5 @@
     "nwb": "0.21.x",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
-  },
-  "author": "",
-  "homepage": "",
-  "license": "MIT",
-  "repository": "",
-  "keywords": [
-    "react-component"
-  ]
+  }
 }
