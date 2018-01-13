@@ -6,11 +6,11 @@
 
 Describe react-smart-grid here.
 
-[build-badge]: https://img.shields.io/travis/user/repo/master.png?style=flat-square
-[build]: https://travis-ci.org/user/repo
+[build-badge]: https://img.shields.io/travis/lunochkin/react-smart-grid/master.png?style=flat-square
+[build]: https://travis-ci.org/lunochkin/react-smart-grid
 
 [npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
-[npm]: https://www.npmjs.org/package/npm-package
+[npm]: https://www.npmjs.org/package/react-smart-grid
 
-[coveralls-badge]: https://img.shields.io/coveralls/user/repo/master.png?style=flat-square
-[coveralls]: https://coveralls.io/github/user/repo
+[coveralls-badge]: https://img.shields.io/coveralls/lunochkin/react-smart-grid/master.png?style=flat-square
+[coveralls]: https://coveralls.io/github/lunochkin/react-smart-grid
