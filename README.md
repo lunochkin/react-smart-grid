@@ -7,7 +7,7 @@
 [build-badge]: https://img.shields.io/travis/lunochkin/react-smart-grid/master.png?style=flat-square
 [build]: https://travis-ci.org/lunochkin/react-smart-grid
 
-[npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
+[npm-badge]: https://img.shields.io/npm/v/npm.svg
 [npm]: https://www.npmjs.org/package/react-smart-grid
 
 [coveralls-badge]: https://img.shields.io/coveralls/lunochkin/react-smart-grid/master.png?style=flat-square
