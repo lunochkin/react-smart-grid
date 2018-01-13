@@ -15,7 +15,7 @@
 
 ## Installation
 
-React-Smart-Grid is available as an [npm package]([npm]).
+React-Smart-Grid is available as an [npm package][npm].
 
 ```sh
 npm install --save react-smart-grid
