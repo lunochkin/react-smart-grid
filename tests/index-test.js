@@ -2,7 +2,7 @@ import expect from 'expect'
 import React from 'react'
 import {render, unmountComponentAtNode} from 'react-dom'
 
-import Component from 'src/'
+import Grid from 'src/'
 
 describe('Component', () => {
   let node
@@ -15,9 +15,20 @@ describe('Component', () => {
     unmountComponentAtNode(node)
   })
 
-  it('displays a Grid message', () => {
-    render(<Component/>, node, () => {
-      expect(node.innerHTML).toContain('Grid')
+  it('displays a cell value', () => {
+    const key = 'id'
+    const check = 'test'
+
+    const columns = [
+      {key}
+    ]
+
+    const rows = [
+      {[key]: check}
+    ]
+
+    render(<Grid columns={columns} rows={rows} />, node, () => {
+      expect(node.innerHTML).toContain(check)
     })
   })
 })

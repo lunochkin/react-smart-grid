@@ -1,7 +1,13 @@
 import React from 'react'
+import Body from './Body'
+import Header from './Header'
 
 
-export default props =>
+export default ({rows, columns}) =>
   <div>
-    Grid
+    <Header columns={columns} />
+    <Body
+      columns={columns}
+      rows={rows}
+    />
   </div>
