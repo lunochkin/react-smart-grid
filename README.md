@@ -13,6 +13,11 @@
 [coveralls-badge]: https://img.shields.io/coveralls/lunochkin/react-smart-grid/master.svg?style=flat-square
 [coveralls]: https://coveralls.io/github/lunochkin/react-smart-grid
 
+
+## Demo
+
+https://lunochkin.github.io/react-smart-grid/
+
 ## Installation
 
 React-Smart-Grid is available as an [npm package][npm].
