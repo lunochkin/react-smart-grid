@@ -5,6 +5,17 @@
   "repository": "https://github.com/lunochkin/react-smart-grid",
   "homepage": "https://github.com/lunochkin/react-smart-grid",
   "author": "Maksim Lunochkin",
+  "contributors": [
+    {
+      "name": "Alexander Fedorov",
+      "url": "http://4edorov.com/"
+    },
+    {
+      "name": "Maksim Lunochkin",
+      "url": "http://lunochkin.com",
+      "email": "maxlun86@gmail.com"
+    }
+  ],
   "license": "MIT",
   "keywords": [
     "react-smart-grid",
