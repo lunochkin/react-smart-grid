@@ -1,6 +1,8 @@
 .RSG-grid {
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
 }
 
 .RSG-row {
@@ -14,10 +16,14 @@
   white-space: nowrap;
   box-sizing: border-box;
   padding: 2px 4px;
+  height: 100%;
+  border-right: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
 }
 
 .RSG-header {
   flex: none;
+  position: relative;
 }
 
 .RSG-body {

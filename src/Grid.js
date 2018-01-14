@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import Body from './Body'
 import Header from './Header'
 
@@ -6,6 +7,7 @@ import Header from './Header'
 const colDefDefault = {
   width: 100
 }
+
 
 const processColDefs = colDefs => {
   let left = 0
@@ -20,19 +22,39 @@ const processColDefs = colDefs => {
   return result
 }
 
-export default ({rows, columns, ...props}) => {
 
-  const colDefs = processColDefs(columns)
+class Grid extends React.Component {
 
-  const height = props.height || 400
+  header
 
-  return (
-    <div className="RSG-grid" style={{height}}>
-      <Header columns={colDefs} />
-      <Body
-        columns={colDefs}
-        rows={rows}
-      />
-    </div>
-  )
+  componentDidMount() {
+    this.header = ReactDOM.findDOMNode(this).querySelector('.RSG-header')
+  }
+
+
+  handleScroll = e => {
+    const scrollLeft = e.target.scrollLeft
+    this.header.style.left = `${-scrollLeft}px`
+  }
+
+  render() {
+    const {rows, columns, ...props} = this.props
+
+    const colDefs = processColDefs(columns)
+
+    const height = props.height || 400
+
+    return (
+      <div className="RSG-grid" style={{height}}>
+        <Header columns={colDefs} />
+        <Body
+          columns={colDefs}
+          rows={rows}
+          onScroll={this.handleScroll}
+        />
+      </div>
+    )
+  }
 }
+
+export default Grid
