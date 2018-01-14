@@ -3,10 +3,11 @@ import React from 'react'
 
 class Cell extends React.Component {
   render() {
-    const {value} = this.props
+    const {row, column} = this.props
+
     return (
-      <div>
-        {value}
+      <div className="RSG-cell RSG-body-cell" style={{left: column.left, width: column.width}}>
+        {row[column.key]}
       </div>
     )
   }

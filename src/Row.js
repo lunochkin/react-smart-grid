@@ -3,11 +3,12 @@ import Cell from './Cell'
 
 
 export default ({row, columns}) =>
-  <div>
+  <div className="RSG-row RSG-body-row">
     {columns.map((column, index) =>
       <Cell
         key={index}
-        value={row[column.key]}
+        row={row}
+        column={column}
       />
     )}
   </div>

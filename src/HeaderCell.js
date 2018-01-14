@@ -2,4 +2,6 @@ import React from 'react'
 
 
 export default ({column}) =>
-  <div>{column.name || column.key}</div>
+  <div className="RSG-cell RSG-header-cell" style={{width: column.width, left: column.left}}>
+    {column.name || column.key}
+  </div>

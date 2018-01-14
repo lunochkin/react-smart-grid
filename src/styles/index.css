@@ -1,0 +1,20 @@
+
+.RSG-row {
+  position: relative;
+  height: 30px;
+}
+
+.RSG-cell {
+  position: absolute;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  padding: 2px 4px;
+}
+
+/* .RSG-header-row {} */
+
+/* .RSG-header-cell {} */
+
+/* .RSG-body-cell {} */
+

@@ -3,7 +3,7 @@ import HeaderCell from './HeaderCell'
 
 
 export default ({columns}) =>
-  <div>
+  <div className="RSG-row RSG-header-row">
     {columns.map((column, index) =>
       <HeaderCell key={index} column={column} />
     )}
