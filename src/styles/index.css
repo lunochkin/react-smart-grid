@@ -1,3 +1,7 @@
+.RSG-grid {
+  display: flex;
+  flex-direction: column;
+}
 
 .RSG-row {
   position: relative;
@@ -10,6 +14,15 @@
   white-space: nowrap;
   box-sizing: border-box;
   padding: 2px 4px;
+}
+
+.RSG-header {
+  flex: none;
+}
+
+.RSG-body {
+  flex: 1;
+  overflow-y: auto;
 }
 
 /* .RSG-header-row {} */

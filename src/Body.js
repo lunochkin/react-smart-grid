@@ -3,7 +3,7 @@ import Row from './Row'
 
 
 export default ({rows, columns}) =>
-  <div>
+  <div className="RSG-body">
     {rows.map((row, index) =>
       <Row
         key={index}

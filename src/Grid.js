@@ -20,12 +20,14 @@ const processColDefs = colDefs => {
   return result
 }
 
-export default ({rows, columns}) => {
+export default ({rows, columns, ...props}) => {
 
   const colDefs = processColDefs(columns)
 
+  const height = props.height || 400
+
   return (
-    <div>
+    <div className="RSG-grid" style={{height}}>
       <Header columns={colDefs} />
       <Body
         columns={colDefs}
