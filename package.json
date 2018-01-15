@@ -40,7 +40,8 @@
     "test:watch": "nwb test-react --server"
   },
   "dependencies": {
-    "classnames": "^2.2.5"
+    "classnames": "^2.2.5",
+    "rmwc": "^1.0.0"
   },
   "peerDependencies": {
     "react": "16.x"

@@ -1,5 +1,7 @@
 import React from 'react'
+import {Ripple} from 'rmwc/Ripple'
 import cn from 'classnames'
+import '@material/ripple/dist/mdc.ripple.min.css'
 
 
 
@@ -34,14 +36,15 @@ class Pagination extends React.Component {
     const {pageNumber} = this.props
 
     return (
-      <li
-        className={cn({
-          active: !disabled && one === pageNumber,
-          disabled
-        })}
-        key={one}
-        onClick={disabled ? null : this.handleClick(one)}
-      >{title}</li>
+      <Ripple key={one}>
+        <li
+          className={cn({
+            active: !disabled && one === pageNumber,
+            disabled
+          })}
+          onClick={disabled ? null : this.handleClick(one)}
+        >{title}</li>
+      </Ripple>
     )
   }
 }

@@ -35,13 +35,13 @@ html {
   vertical-align: top;
   height: 30px;
   cursor: pointer;
-
   color: #444;
   display: inline-block;
   font-size: 1.2rem;
   padding: 0 10px;
   line-height: 30px;
   margin-right: 5px;
+  user-select: none;
 }
 
 .rsg-pagination li:last-child {
