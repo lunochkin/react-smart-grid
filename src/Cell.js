@@ -6,7 +6,7 @@ class Cell extends React.Component {
     const {row, column} = this.props
 
     return (
-      <div className="RSG-cell RSG-body-cell" style={{left: column.left, width: column.width}}>
+      <div className="rsg-cell rsg-body-cell" style={{left: column.left, width: column.width}}>
         {row[column.key]}
       </div>
     )

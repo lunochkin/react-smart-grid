@@ -18,15 +18,16 @@ class Body extends React.Component {
   }
 
   render() {
-    const {rows, columns} = this.props
+    const {rows, columns, width} = this.props
 
     return (
-      <div className="RSG-body">
+      <div className="rsg-body">
         {rows.map((row, index) =>
           <Row
             key={index}
             row={row}
             columns={columns}
+            width={width}
           />
         )}
       </div>

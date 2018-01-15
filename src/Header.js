@@ -2,9 +2,9 @@ import React from 'react'
 import HeaderCell from './HeaderCell'
 
 
-export default ({columns}) =>
-  <div className="RSG-header">
-    <div className="RSG-row RSG-header-row">
+export default ({columns, width}) =>
+  <div className="rsg-header">
+    <div className="rsg-row rsg-header-row" style={{width}}>
       {columns.map((column, index) =>
         <HeaderCell key={index} column={column} />
       )}

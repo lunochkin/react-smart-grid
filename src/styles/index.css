@@ -1,39 +1,43 @@
-.RSG-grid {
+.rsg-grid {
   display: flex;
   flex-direction: column;
   position: relative;
   overflow: hidden;
 }
 
-.RSG-row {
+.rsg-row {
   position: relative;
   height: 30px;
 }
 
-.RSG-cell {
+.rsg-cell {
   position: absolute;
   overflow: hidden;
   white-space: nowrap;
   box-sizing: border-box;
-  padding: 2px 4px;
   height: 100%;
-  border-right: 1px solid lightgray;
-  border-bottom: 1px solid lightgray;
 }
 
-.RSG-header {
+.rsg-header {
   flex: none;
   position: relative;
 }
 
-.RSG-body {
+.rsg-header-cell-resize {
+  height: 100%;
+  width: 4px;
+  cursor: col-resize;
+  float: right;
+}
+
+.rsg-body {
   flex: 1;
   overflow-y: auto;
 }
 
-/* .RSG-header-row {} */
+/* .rsg-header-row {} */
 
-/* .RSG-header-cell {} */
+/* .rsg-header-cell {} */
 
-/* .RSG-body-cell {} */
+/* .rsg-body-cell {} */
 

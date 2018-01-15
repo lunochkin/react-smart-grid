@@ -28,7 +28,7 @@ class Grid extends React.Component {
   header
 
   componentDidMount() {
-    this.header = ReactDOM.findDOMNode(this).querySelector('.RSG-header')
+    this.header = ReactDOM.findDOMNode(this).querySelector('.rsg-header')
   }
 
 
@@ -44,13 +44,16 @@ class Grid extends React.Component {
 
     const height = props.height || 400
 
+    const width = colDefs.reduce((result, one) => result + one.width, 0)
+
     return (
-      <div className="RSG-grid" style={{height}}>
-        <Header columns={colDefs} />
+      <div className="rsg-grid" style={{height}}>
+        <Header columns={colDefs} width={width} />
         <Body
           columns={colDefs}
           rows={rows}
           onScroll={this.handleScroll}
+          width={width}
         />
       </div>
     )
