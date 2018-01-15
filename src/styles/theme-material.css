@@ -27,3 +27,33 @@ html {
   width: 8px;
   box-sizing: initial;
 }
+
+.rsg-pagination li {
+  display: inline-block;
+  border-radius: 2px;
+  text-align: center;
+  vertical-align: top;
+  height: 30px;
+  cursor: pointer;
+
+  color: #444;
+  display: inline-block;
+  font-size: 1.2rem;
+  padding: 0 10px;
+  line-height: 30px;
+  margin-right: 5px;
+}
+
+.rsg-pagination li:last-child {
+  margin-right: 0;
+}
+
+.rsg-pagination li.active {
+  background-color: #ee6e73;
+  color: #fff;
+}
+
+.rsg-pagination li.disabled {
+  cursor: default;
+  color: #999;
+}
