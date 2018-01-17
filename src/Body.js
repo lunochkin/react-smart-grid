@@ -1,6 +1,15 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import ReactDOM from 'react-dom'
 import Row from './Row'
+import {getVisible} from './module'
+
+
+const connector = connect(
+  state => ({
+    visible: getVisible(state)
+  })
+)
 
 
 class Body extends React.Component {
@@ -18,16 +27,14 @@ class Body extends React.Component {
   }
 
   render() {
-    const {rows, columns, width} = this.props
+    const {visible} = this.props
 
     return (
       <div className="rsg-body">
-        {rows.map((row, index) =>
+        {visible.map(one =>
           <Row
-            key={index}
-            row={row}
-            columns={columns}
-            width={width}
+            key={one}
+            index={one}
           />
         )}
       </div>
@@ -36,4 +43,4 @@ class Body extends React.Component {
 } 
 
 
-export default Body
+export default connector(Body)

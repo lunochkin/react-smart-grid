@@ -33,9 +33,6 @@ const columns = [
     key: 'firstName'
   },
   {
-    key: 'lastName'
-  },
-  {
     key: 'street'
   },
   {
