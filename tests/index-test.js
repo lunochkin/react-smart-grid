@@ -28,7 +28,9 @@ describe('Component', () => {
     ]
 
     render(<Grid columns={columns} rows={rows} />, node, () => {
-      expect(node.innerHTML).toContain(check)
+      setTimeout(() => {
+        expect(node.innerHTML).toContain(check)
+      }, 100)
     })
   })
 })

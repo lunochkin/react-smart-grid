@@ -35,20 +35,20 @@ class Pagination extends React.Component {
 
     return (
       <ul className="rsg-pagination">
-        {this.renderItem(prev, 'prev', pageNumber === 1)}
+        {this.renderItem(prev - 1, prev, 'prev', pageNumber === 1)}
 
-        {pages.map(one => this.renderItem(one, one, false))}
+        {pages.map(one => this.renderItem(one, one, one, false))}
 
-        {this.renderItem(next, 'next', pageNumber === count)}
+        {this.renderItem(next + 1, next, 'next', pageNumber === count)}
       </ul>
     )
   }
 
-  renderItem = (one, title, disabled) => {
+  renderItem = (key, one, title, disabled) => {
     const {pageNumber} = this.props
 
     return (
-      <Ripple key={one}>
+      <Ripple key={key}>
         <li
           className={cn({
             active: !disabled && one === pageNumber,
