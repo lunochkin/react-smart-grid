@@ -1,45 +1,29 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import {bindActionCreators} from 'redux'
+import {connect, Provider} from 'react-redux'
+import {initRows, initColDefs} from './module'
 import Body from './Body'
 import Header from './Header'
 import Pagination from './Pagination'
+import store from './store'
 
 
-const colDefDefault = {
-  width: 100
-}
-
-
-const processColDefs = colDefs => {
-  let left = 0
-  const result = []
-  for (let i = 0; i < colDefs.length; i++) {
-    const colDef = {...colDefDefault, ...colDefs[i]}
-    colDef.left = left
-
-    left += colDef.width
-    result.push(colDef)
-  }
-  return result
-}
+const withDispatch = connect(
+  null,
+  dispatch => ({dispatch})
+)
 
 
 class Grid extends React.Component {
 
   header
 
-  state = {
-    pageNumber: 1
-  }
-
-  handlePageNumberChange = pageNumber => {
-    this.setState({
-      pageNumber
-    })
-  }
-
   componentDidMount() {
     this.header = ReactDOM.findDOMNode(this).querySelector('.rsg-header')
+
+    this.props.dispatch(initRows(this.props.rows))
+    this.props.dispatch(initColDefs(this.props.columns))
   }
 
 
@@ -49,40 +33,23 @@ class Grid extends React.Component {
   }
 
   render() {
-    const {rows, columns, ...props} = this.props
-
-    const colDefs = processColDefs(columns)
-
-    const height = props.height || 400
-    const pageSize = 20
-    const total = rows.length
-
-    const width = colDefs.reduce((result, one) => result + one.width, 0)
-
-    const offset = pageSize * (this.state.pageNumber - 1)
-
-    const rowsToDisplay = rows.slice(offset, offset + pageSize)
+    const height = this.props.height || 400
 
     return (
       <div className="rsg-grid" style={{height}}>
-        <Header columns={colDefs} width={width} />
+        <Header />
         <Body
-          columns={colDefs}
-          rows={rowsToDisplay}
           onScroll={this.handleScroll}
-          width={width}
         />
-        {
-          <Pagination
-            pageSize={pageSize}
-            total={total}
-            pageNumber={this.state.pageNumber}
-            onChange={this.handlePageNumberChange}
-          />
-        }
+        <Pagination />
       </div>
     )
   }
 }
 
-export default Grid
+const ConnectedGrid = withDispatch(Grid)
+
+export default props =>
+  <Provider store={store}>
+    <ConnectedGrid {...props} />
+  </Provider>

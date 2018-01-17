@@ -1,18 +1,30 @@
 import React from 'react'
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
+import {setPageNumber} from './module'
 import {Ripple} from 'rmwc/Ripple'
 import cn from 'classnames'
 import '@material/ripple/dist/mdc.ripple.min.css'
 
 
+const connector = connect(
+  state => state.pagination,
+  dispatch => bindActionCreators({setPageNumber}, dispatch)
+)
+
 
 class Pagination extends React.Component {
 
   handleClick = pageNumber => () => {
-    this.props.onChange(pageNumber)
+    this.props.setPageNumber(pageNumber)
   }
 
   render() {
     const {pageSize, total, pageNumber} = this.props
+
+    if (total === 0) {
+      return null
+    }
 
     const count = Math.ceil(total / pageSize)
 
@@ -50,4 +62,4 @@ class Pagination extends React.Component {
 }
 
 
-export default Pagination
+export default connector(Pagination)
