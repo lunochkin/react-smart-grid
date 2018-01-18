@@ -5,7 +5,14 @@ const SET_TOTAL = 'SET_TOTAL'
 const SET_ROWS = 'SET_ROWS'
 const SET_COL_DEFS = 'SET_COL_DEFS'
 const SET_CALCULATED_WIDTH = 'SET_CALCULATED_WIDTH'
+const SET_CELL_VALUE = 'SET_CELL_VALUE'
+const SET_EDITING_COORDS = 'SET_EDITING_COORDS'
 
+
+const defaultEditingCoords = {
+  index: -1,
+  key: ''
+}
 
 const initialState = {
   pagination: {
@@ -15,7 +22,8 @@ const initialState = {
   },
   width: 0,
   colDefs: [],
-  rows: []
+  rows: [],
+  editingCoords: defaultEditingCoords
 }
 
 
@@ -31,6 +39,10 @@ export const reducer = (state = initialState, {type, payload}) => {
       return {...state, colDefs: payload}
     case SET_CALCULATED_WIDTH:
       return {...state, width: payload.width}
+    case SET_CELL_VALUE:
+      return assocPath(['rows', payload.index, payload.colDef.key], payload.value, state)
+    case SET_EDITING_COORDS:
+      return {...state, editingCoords: payload || defaultEditingCoords}
     default:
       return state
   }
@@ -60,6 +72,16 @@ const setColDefs = colDefs => ({
 const setCalculatedWidth = width => ({
   type: SET_CALCULATED_WIDTH,
   payload: {width}
+})
+
+export const setEditingCoords = (index, key) => ({
+  type: SET_EDITING_COORDS,
+  payload: {index, key}
+})
+
+export const clearEditingCoords = () => ({
+  type: SET_EDITING_COORDS,
+  payload: defaultEditingCoords
 })
 
 
@@ -97,6 +119,11 @@ export const initRows = rows => dispatch => {
   dispatch(setRows(rows))
   return dispatch(setTotal(rows.length))
 }
+
+export const setCellValue = (index, colDef, value) => ({
+  type: SET_CELL_VALUE,
+  payload: {index, colDef, value}
+})
 
 
 const getVisibleUncached = state => {

@@ -16,6 +16,12 @@
   white-space: nowrap;
   box-sizing: border-box;
   height: 100%;
+  user-select: none;
+}
+
+.rsg-cell input {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .rsg-header {
