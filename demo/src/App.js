@@ -45,7 +45,7 @@ class App extends React.Component {
           <div style={styles.mainRow}>
             <Sidebar />
             <main style={styles.content}>
-              <Route path="/" exact component={AllFeatures} />
+              <Route path="" exact component={AllFeatures} />
             </main>
           </div>
         </div>
