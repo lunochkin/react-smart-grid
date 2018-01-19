@@ -15,8 +15,20 @@ const connector = connect(
 
 class Cell extends React.Component {
 
+  handleClick = e => {
+    if (e.detail === 1) {
+      this.props.dispatch(setEditingCoords(-1, -1))
+    }
+  }
+
+  handleInputClick = e => {
+    e.stopPropagation()
+  }
+
   handleDoubleClick = () => {
-    this.props.dispatch(setEditingCoords(this.props.index, this.props.colDef.key))
+    if (this.props.colDef.editable) {
+      this.props.dispatch(setEditingCoords(this.props.index, this.props.colDef.key))
+    }
   }
 
   handleRelease = () => {
@@ -38,9 +50,10 @@ class Cell extends React.Component {
         className="rsg-cell rsg-body-cell"
         style={{left, width}}
         onDoubleClick={this.handleDoubleClick}
+        onClick={this.handleClick}
       >
         {this.props.editing ?
-          <TextEditor value={value} onChange={this.handleChange} onRelease={this.handleRelease} />
+          <TextEditor value={value} onClick={this.handleInputClick} onChange={this.handleChange} onRelease={this.handleRelease} />
           :
           value
         }

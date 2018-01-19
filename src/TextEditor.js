@@ -17,7 +17,7 @@ class TextEditor extends React.Component {
   }
 
   render() {
-    const {value, onChange} = this.props
+    const {value, onChange, onClick} = this.props
 
     return (
       <input
@@ -26,6 +26,7 @@ class TextEditor extends React.Component {
         value={value}
         onChange={onChange}
         onKeyUp={this.handleKeyUp}
+        onClick={onClick}
       />
     )
   }
