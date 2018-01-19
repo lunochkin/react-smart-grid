@@ -17,7 +17,7 @@ class Sidebar extends React.Component {
   render() {
     return (
       <div style={styles.root}>
-        <NavLink to="/">All features</NavLink>
+        <NavLink to="">All features</NavLink>
       </div>
     )
   }
