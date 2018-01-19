@@ -22,7 +22,7 @@ class Body extends React.Component {
 
   componentWillUnmount() {
     if (this.props.onScroll) {
-      ReactDOM.findDOMNode(this).removeEventListener(this.props.onScroll)
+      ReactDOM.findDOMNode(this).removeEventListener('scroll', this.props.onScroll)
     }
   }
 

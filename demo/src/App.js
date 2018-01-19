@@ -30,8 +30,10 @@ const styles = {
 
 class App extends React.Component {
   render() {
+    const basename = process.env.NODE_ENV === 'production' ? '/react-smart-grid' : '/'
+
     return (
-      <Router>
+      <Router basename={basename}>
         <div style={styles.root}>
           <a style={styles.githubLink} href="https://github.com/lunochkin/react-smart-grid">
             View on GitHub <GithubMark />
@@ -45,7 +47,7 @@ class App extends React.Component {
           <div style={styles.mainRow}>
             <Sidebar />
             <main style={styles.content}>
-              <Route path="" exact component={AllFeatures} />
+              <Route path="/" exact component={AllFeatures} />
             </main>
           </div>
         </div>
