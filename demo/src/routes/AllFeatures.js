@@ -1,6 +1,8 @@
 import React from 'react'
 import faker from 'faker'
 import ReactSmartGrid from '../../../src'
+import InputNumber from '../../../src/components/widgets/InputNumber'
+import InputDate from '../../../src/components/widgets/InputDate'
 
 
 faker.locale = 'en_US'
@@ -34,10 +36,14 @@ const columns = [
     key: 'street'
   },
   {
-    key: 'zipCode'
+    key: 'zipCode',
+    editable: true,
+    component: InputNumber
   },
   {
-    key: 'date'
+    key: 'date',
+    editable: true,
+    component: InputDate
   },
   {
     key: 'bs',

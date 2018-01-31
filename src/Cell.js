@@ -44,6 +44,8 @@ class Cell extends React.Component {
 
   render() {
     const {value, colDef: {left, width}} = this.props
+    const Component = this.props.colDef.component
+    const editable = this.props.colDef.editable
 
     return (
       <div
@@ -52,15 +54,15 @@ class Cell extends React.Component {
         onDoubleClick={this.handleDoubleClick}
         onClick={this.handleClick}
       >
-        {this.props.editing ?
-          <TextEditor value={value} onClick={this.handleInputClick} onChange={this.handleChange} onRelease={this.handleRelease} />
-          :
-          value
+        {Component && editable && this.props.editing ?
+          <Component value={value} onChange={this.handleChange} onClick={this.handleInputClick} /> :
+          !Component && editable && this.props.editing ?
+            <TextEditor value={value} onClick={this.handleInputClick} onChange={this.handleChange} onRelease={this.handleRelease} /> :
+            value
         }
       </div>
     )
   }
 }
-
 
 export default connector(Cell)
