@@ -50,11 +50,17 @@ class Cell extends React.Component {
         onDoubleClick={this.props.colDef.editable && this.handleDoubleClick}
         onClick={this.handleClick}
       >
-        {Component && editable && this.props.editing ?
-          <Component value={value} onChange={this.handleChange} onClick={this.handleInputClick} /> :
-          !Component && editable && this.props.editing ?
-            <TextEditor value={value} onClick={this.handleInputClick} onChange={this.handleChange} onRelease={this.handleRelease} /> :
-            value
+        {
+          Component ?
+            <Component
+              value={value}
+              onChange={this.handleChange}
+              onClick={this.handleInputClick}
+              editMode={this.props.editing}
+            /> :
+            !Component && this.props.editing ?
+              <TextEditor value={value} onClick={this.handleInputClick} onChange={this.handleChange} onRelease={this.handleRelease} /> :
+              value
         }
       </div>
     )
