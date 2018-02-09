@@ -16,9 +16,7 @@ const connector = connect(
 class Cell extends React.Component {
 
   handleClick = e => {
-    if (e.detail === 1) {
-      this.props.dispatch(setEditingCoords(-1, -1))
-    }
+    this.props.dispatch(setEditingCoords(-1, -1))
   }
 
   handleInputClick = e => {
@@ -26,9 +24,7 @@ class Cell extends React.Component {
   }
 
   handleDoubleClick = () => {
-    if (this.props.colDef.editable) {
-      this.props.dispatch(setEditingCoords(this.props.index, this.props.colDef.key))
-    }
+    this.props.dispatch(setEditingCoords(this.props.index, this.props.colDef.key))
   }
 
   handleRelease = () => {
@@ -44,23 +40,30 @@ class Cell extends React.Component {
 
   render() {
     const {value, colDef: {left, width}} = this.props
+    const Component = this.props.colDef.component
 
     return (
       <div
         className="rsg-cell rsg-body-cell"
         style={{left, width}}
-        onDoubleClick={this.handleDoubleClick}
+        onDoubleClick={this.props.colDef.editable && this.handleDoubleClick}
         onClick={this.handleClick}
       >
-        {this.props.editing ?
-          <TextEditor value={value} onClick={this.handleInputClick} onChange={this.handleChange} onRelease={this.handleRelease} />
-          :
-          value
+        {
+          Component ?
+            <Component
+              value={value}
+              onChange={this.handleChange}
+              onClick={this.handleInputClick}
+              editMode={this.props.editing}
+            /> :
+            this.props.editing ?
+              <TextEditor value={value} onClick={this.handleInputClick} onChange={this.handleChange} onRelease={this.handleRelease} /> :
+              value
         }
       </div>
     )
   }
 }
-
 
 export default connector(Cell)

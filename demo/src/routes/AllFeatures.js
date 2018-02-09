@@ -1,6 +1,9 @@
 import React from 'react'
 import faker from 'faker'
 import ReactSmartGrid from '../../../src'
+import InputNumber from '../../../src/components/widgets/InputNumber'
+import InputDate from '../../../src/components/widgets/InputDate'
+import InputCheckbox from '../../../src/components/widgets/InputCheckbox'
 
 
 faker.locale = 'en_US'
@@ -34,10 +37,14 @@ const columns = [
     key: 'street'
   },
   {
-    key: 'zipCode'
+    key: 'zipCode',
+    editable: true,
+    component: InputNumber
   },
   {
-    key: 'date'
+    key: 'date',
+    editable: true,
+    component: InputDate
   },
   {
     key: 'bs',
@@ -58,6 +65,11 @@ const columns = [
   {
     key: 'sentence',
     width: 300
+  },
+  {
+    key: 'earthman',
+    editable: true,
+    component: InputCheckbox
   }
 ]
 
@@ -78,7 +90,8 @@ const createFakeRowObjectData = index => {
     catchPhrase: faker.company.catchPhrase(),
     companyName: faker.company.companyName(),
     words: faker.lorem.words(),
-    sentence: faker.lorem.sentence()
+    sentence: faker.lorem.sentence(),
+    earthman: faker.random.boolean()
   }
 }
 
