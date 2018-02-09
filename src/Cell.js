@@ -41,7 +41,6 @@ class Cell extends React.Component {
   render() {
     const {value, colDef: {left, width}} = this.props
     const Component = this.props.colDef.component
-    const editable = this.props.colDef.editable
 
     return (
       <div
@@ -58,7 +57,7 @@ class Cell extends React.Component {
               onClick={this.handleInputClick}
               editMode={this.props.editing}
             /> :
-            !Component && this.props.editing ?
+            this.props.editing ?
               <TextEditor value={value} onClick={this.handleInputClick} onChange={this.handleChange} onRelease={this.handleRelease} /> :
               value
         }

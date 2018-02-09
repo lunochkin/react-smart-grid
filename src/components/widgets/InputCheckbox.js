@@ -29,10 +29,9 @@ class InputCheckbox extends React.Component {
         />
       )
     } else {
-      const checkbox = this.props.value === true ? 'far fa-check-square' : 'far fa-square'
       component = (
         <span>
-          <i className={checkbox}></i>
+          <i className={this.props.value === true ? 'far fa-check-square' : 'far fa-square'}></i>
         </span>
       )
     }
